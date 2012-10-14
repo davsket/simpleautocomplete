@@ -1,0 +1,10 @@
+{
+    "evil": false,
+    "regexdash": false,
+    "browser": true,
+    "wsh": false,
+    "trailing": false,
+    "sub": true,
+    "asi": true,
+    "mootools": true
+}

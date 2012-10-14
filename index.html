@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Autocomplte Example</title>
+</head>
+<body>
+	<h1>Simple Autocomplete</h1>
+	<p>You can try any of the following words:</p>
+	<ul id="wordslist">
+		<li>black</li>
+		<li>blue</li>
+		<li>blue dark</li>
+		<li>blue darker</li>
+		<li>green</li>
+		<li>green dark</li>
+		<li>green even darker</li>
+		<li>green light</li>
+		<li>grey similar to silver but darker</li>
+		<li>silver</li>
+		<li>yellow</li>
+	</ul>
+	<input type="text" name="" value="" placeholder="Insert text here" id="test">
+	<script type="text/javascript" src="js/autocomplete.js"></script>
+	<script type="text/javascript">
+		var myStack = [
+			'black',
+			'blue',
+			'blue dark',
+			'blue darker',
+			'green',
+			'green dark',
+			'green even darker',
+			'green light',
+			'grey similar to silver but darker',
+			'silver',
+			'yellow'
+		]
+		autocomplete(document.getElementById('test'), myStack)
+	</script>
+</body>
+</html>
