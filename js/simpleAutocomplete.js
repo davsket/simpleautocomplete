@@ -1,6 +1,17 @@
+/*!
+---
+script: More.js
+description: A simple autocomplete that completes inside the input.
+license: MIT-style license
+author: David Avellaneda @davsket
+...
+*/
 (function(){
 	var _stack = []
 	
+	//MooTools.More.Element.Forms.selectRange
+	//https://github.com/mootools/mootools-more/blob/master/Source/Element/Element.Forms.js
+	//Copyright (c) 2006-2012 Valerio Proietti, <http://mad4milk.net/>
 	function _selectRange(element, start, end){
 		if(element.selectRange)
 			return element.selectRange(start, end)
@@ -25,12 +36,11 @@
 	function _searchInStack(abbreviation){
 		var i = 0, maxIndex = -1, maxScore = 0, tempScore,
 			matchIndex
-		for(; i < _stack.length; i++){
-			
-			matchIndex = _stack[i].toLowerCase().indexOf(abbreviation.toLowerCase())
 
+		for(; i < _stack.length; i++){
+			matchIndex = _stack[i].toLowerCase().indexOf(abbreviation.toLowerCase())
 			if(matchIndex === 0 &&
-				abbreviation.length < _stack[i].length){
+				abbreviation.length != _stack[i].length){
 				return _stack[i]
 			}
 		}
