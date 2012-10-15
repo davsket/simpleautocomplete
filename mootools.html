@@ -1,7 +1,7 @@
 <html>
 <head>
-	<title>Simple Autocomplete</title>
-	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow|Titillium+Web' rel='stylesheet' type='text/css'>
+	<title>Autocomplte Example (MooTools example)</title>
+	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>
 	<link href='css/main.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -37,6 +37,7 @@
 	<br><br>
 	<h2>License</h2>
 	<p>MIT Licensed</p>
+	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
 	<script type="text/javascript" src="js/simpleAutocomplete.js"></script>
 	<script type="text/javascript">
 		var myStack = [
@@ -52,7 +53,7 @@
 			'silver',
 			'yellow'
 		]
-		simpleAutocomplete(document.getElementById('test'), myStack)
+		$('test').simpleAutocomplete(myStack).focus()
 	</script>
 </body>
 </html>
