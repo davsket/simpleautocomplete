@@ -4,10 +4,13 @@ script: More.js
 description: A simple autocomplete that completes inside the input.
 license: MIT-style license
 author: David Avellaneda @davsket
+modified: 17 nov 2012
 ...
 */
 (function(){
-	var _stack = []
+	var _stack = [],
+	//Timeout for control
+	timeout
 	
 	//MooTools.More.Element.Forms.selectRange
 	//https://github.com/mootools/mootools-more/blob/master/Source/Element/Element.Forms.js
@@ -52,7 +55,10 @@ author: David Avellaneda @davsket
 		if(!this.value)
 			return
 
-		var code = (window.event) ? evt.which : evt.keyCode
+		var code = (window.event) ? evt.which : evt.keyCode,
+			self = this
+
+		clearTimeout(timeout)
 		
 		//Backspace or delete or shift or alt or capslock or cmd
 		if(code == 8 || 
@@ -64,23 +70,26 @@ author: David Avellaneda @davsket
 			code == 91){
 			return
 		}
-		//Enter
-		if(code == 13){
-			this.setSelectionRange(this.value.length, this.value.length)
-			return
-		}
-		//key arrows
-		if(code > 36 && code < 41){
-			return
-		}
 
-		var originalValue = this.value,
-			match = _searchInStack(originalValue)
+		timeout = setTimeout(function(){
+			//Enter
+			if(code == 13){
+				self.setSelectionRange(self.value.length, self.value.length)
+				return
+			}
+			//key arrows
+			if(code > 36 && code < 41){
+				return
+			}
 
-		if(match !== null){
-			this.value = match;
-			this.setSelectionRange(originalValue.length, match.length)
-		}
+			var originalValue = self.value,
+				match = _searchInStack(originalValue)
+
+			if(match !== null){
+				self.value = match;
+				self.setSelectionRange(originalValue.length, match.length)
+			}
+		}, 200)
 	}
 
 	function _addEvent(element, event_name, event_function) 
