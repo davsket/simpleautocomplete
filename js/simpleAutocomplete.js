@@ -5,6 +5,7 @@ description: A simple autocomplete that completes inside the input.
 license: MIT-style license
 author: David Avellaneda @davsket
 modified: 17 nov 2012
+version: 0.9
 ...
 */
 (function(){
